@@ -3,8 +3,6 @@ from datetime import datetime, timedelta
 from operators.twitter_operator import TwitterOperator
 from os.path import join
 from airflow.utils.dates import days_ago
-
-
 from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 
 # Variables
