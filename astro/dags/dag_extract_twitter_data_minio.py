@@ -19,7 +19,7 @@ with DAG(
         task_id="extract_twitter_data",
         query=query,
         file_path=join(
-            "datalake/bronze/twitter_alura",
+            "http://localhost:9001/buckets/bronze/twitter_alura",
             "extract_data_{{ ds_nodash }}",
             "alura_{{ ds_nodash }}.json"
         ),
@@ -43,7 +43,7 @@ with DAG(
         name="twitter_transformation",
         application_args=[
             "--src",
-            "datalake/bronze/twitter_alura/extract_data_{{ ds_nodash }}",
+            "http://localhost:9001/buckets/bronze/twitter_alura/extract_data_{{ ds_nodash }}",
             "--dest",
             "datalake/silver/twitter_alura",
             "--process-date",
